@@ -1,0 +1,512 @@
+<center>
+	<h1>Python Machine Learning Cheat Sheet</h1>
+</center>
+
+<section style="columns: 6; column-gap: 5px; column-rule: 1px solid gray;">
+
+<h3>iPython</h3>
+
+<p><strong>Errors & Debugging:</strong><br>
+	<small>
+		%xmode (exception info)<br>
+		%debug, %pdb<br>
+	</small>
+</p>
+<p><strong>Help & Documentation:</strong><br>
+	<small>
+		function?<br>
+		function??<br>
+		module\t, module. <br>
+		from module import nn\t<br>
+		*method?<br>
+	</small>
+</p>
+<p><strong>Input/Output History (Logs):</strong><br>
+	<small>
+		In, Out, In[n], Out[n]<br>
+		_, __, _n (previous outputs)<br>
+	</small>
+</p>
+<p><strong>Magic Commands:</strong><br>
+	<small>
+		%paste, %cpaste<br>
+		%run script.py<br>
+	</small>
+</p>
+<p><strong>Shell Commands:</strong><br>
+	<small>
+		!ls, !pwd, !echo<br>
+		var = !ls<br>
+		command; (suppress output)<br>
+		%history, %rerun, %save<br>
+		msg = "howdy"; !echo {msg}<br>
+		%automagic<br>
+		%cat, %cp, %env, %ls, %man, %mkdir, %more, %mv, %pwd, %rm, %rmdir<br>
+	</small>
+</p>
+<p><strong>Timing & Profiling:</strong><br>
+	<small>
+		%timeit 1line, %%timeit multiline<br>
+		%prun, %lprun (run with profiler)<br>
+		%memit, %mprun (memory profiler)<br>
+	</small>
+</p>
+
+<hr>
+
+<h3>NumPy</h3>
+
+<p><strong>Aggregations:</strong><br>
+	<small>
+		sum(),min(),max()<br>
+		multidimensional ops<br>
+		prod(),mean(),std(),var()<br>
+		argmin(),argmax(),median()<br>
+		percentile(),any(),all()<br>
+	</small>
+</p>
+<p><strong>Arrays:</strong><br>
+	<small>
+		ndim,shape,size<br>
+		dtype,itemsize,nbytes<br>
+		elements: [i],[-i],[i,j]<br>
+		slices: [:n],[n:],[n:m],[::n],[n::m]<br>
+		columns: [:,n]<br>
+		rows: [n,:]<br>
+		copy(), reshape(), newaxis()<br>
+		concatenate()<br>
+		vstack(),hstack(),dstack()<br>
+		split(),hsplit(),vsplit()<br>
+	</small>
+</p>
+<p><strong>Boolean Arrays & Masks:</strong><br>
+	<small>
+		a<b,a>b,a<=b,a>=b,a!=b,a==b<br>
+		count_nonzero(),sum(),any(),all()<br>
+		bitwise: a&b, a|b, a^b, a~b<br>
+		masks: a[a<b]<br>
+	</small>
+</p>
+<p><strong>Broadcasting:</strong><br>
+	<small>
+		rules: 2 arrays<br>
+		array centering<br>
+		<span style="color:blue;">
+			Example: 2D function plot</span><br>
+	</small>
+</p>
+<p><strong>Data Types:</strong><br>
+	<small>
+		integer internals<br>
+		list internals<br>
+		fixed-type arrays<br>
+		zeros(),ones(),full(),arange()<br>
+		linspace(),random(),normal()<br>
+		randint(),eye(),empty()<br>
+		std datatypes (int_,...)<br>
+	</small>
+</p>
+<p><strong>Fancy Indexing:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Sorting:</strong><br>
+	<small>
+		np.sort(), np.argsort()<br>
+		np.sort(X, axis=n)<br>
+		np.partition()<br>
+		<span style="color:blue;">
+			Example: k-nearest neighbors</span><br>
+	</small>
+</p>
+<p><strong>Structured Data:</strong><br>
+	<small>
+		dtype={'atr1':(..), 'atr2':(..)...}<br>
+		struc=np.zeros(n, dtype=dtype)<br>
+		np.recarray()<br>
+	</small>
+</p>
+<p><strong>Universal (Array) Functions:</strong><br>
+	<small>
+		+,-,*,/,//,**,%<br>
+		abs,sin,cos,tan,arssin,arccos,arctan<br>
+		exp,exp2,power,log,log2,log10<br>
+		expm1,log1p<br>
+		Scipy import special<br>
+		reduce,accumulate<br>
+		outer<br>
+	</small>
+</p>
+
+<hr>
+
+<h3>Matplotlib</h3>
+
+<p><strong>Introduction:</strong><br>
+	<small>
+		matplot.pyplot as plt<br>
+		plt.style.use('classic')<br>
+		%matplotlib inline/notebook<br>
+		fig.savefig(), Image()<br>
+		fig.canvas.get_supported_filetypes()<br>
+		plt.figure()<br>
+	</small>
+</p>
+<p><strong>3D Plotting:</strong><br>
+	<small>
+		mplot3d, projection='3d'<br>
+		plot3D(), scatter3D(), contour3D()<br>
+		plot_wireframe(), plot_surface()<br>
+		plot_trisurf()<br>
+	</small>
+</p>
+<p><strong>Custom Colorbars:</strong><br>
+	<small>
+		plt.colorbar()<br>
+	</small>
+</p>
+<p><strong>Custom Legends:</strong><br>
+	<small>
+		ax.legend()<br>
+		loc,frameon,ncol,fancybox<br>
+		elements<br>
+		datapoint sizes<br>
+		multiple legends<br>
+	</small>
+</p>
+<p><strong>Custom Tickmarks:</strong><br>
+	<small>
+	</small>
+</p>
+<p><strong>Density & Contour Plots:</strong><br>
+	<small>
+		contour(), contourf(), clabel()<br>
+		fill_between()
+	</small>
+</p>
+<p><strong>Errorbars:</strong><br>
+	<small>
+		errorbar()<br>
+	</small>
+</p>
+<p><strong>Geographic Data with Basemap:</strong><br>
+	<small>
+		bluemarble(), etopo(), <br>
+		shadedrelief(), drawparallels()<br>
+		other projections<br>
+		drawing map backgrounds<br>
+		plotting data on maps<br>
+		<span style="color:blue;">
+			Example: California Cities</span><br>
+	</small>
+</p>
+<p><strong>Histograms & Bins:</strong><br>
+	<small>
+		hist(), hist2D(), hexbin()<br>
+	</small>
+</p>
+<p><strong>Line Plots:</strong><br>
+	<small>
+		plot()<br>
+	</small>
+</p>
+<p><strong>Subplots:</strong><br>
+	<small>
+		subplot(), subplots()<br>
+		subplots_adjust(), add_subplot()<br>
+	</small>
+</p>
+<p><strong>Scatter Plots:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Settings & Stylesheets:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Text & Annotation:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Further Resources:</strong><br>
+	<small>
+		Bokeh, Plotly, Vispy, Vega, Vega-Lite<br>
+	</small>
+</p>
+
+<hr>
+
+<h3>Seaborn</h3>
+
+<p><strong>Introduction:</strong><br>
+	<small>
+		Comparison to Matplotlib<br>
+		Histograms<br>
+		Kernel Density Estimation plots<br>
+		Distribution plots<br>
+		Kernel Density Estimation plots (2D)<br>
+		Joint Distribution plots<br>
+		Hexagonal Histograms<br>
+		<br>
+		Pair plots<br>
+		Subset Histograms (Facet grids)<br>
+		Factor plots<br>
+		Joint distribution plots<br>
+		Time Series factor plots<br>
+		<span style="color:blue;">
+			example: Marathon finishing times<br>
+			- joint plot<br>
+			- pair grid<br>
+			- KDE plot<br>
+			- violin plot<br>
+			- linear model plot<br></span>
+	</small>
+</p>
+<p><strong>Pokemon Tutorial:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+
+<hr>
+
+<h3>Pandas</h3>
+
+<p><strong>Aggregation & Grouping:</strong><br>
+	<small>
+		series.sum, .mean<br>
+		df.sum, .mean()<br>
+		describe()<br>
+		df.groupby()<br>
+		.aggregate(), .filter(), .transform(), .apply()<br>
+
+	</small>
+</p>
+<p><strong>Concat & Append:</strong><br>
+	<small>
+		pd.concat
+		pd.append<br>
+	</small>
+</p>
+<p><strong>Hierarchical Indexing</strong><br>
+	<small>
+		pd.MultiIndex<br>
+		reindex(), stack(), unstack()<br>
+		set_index(), reset_index()
+	</small>
+</p>
+<p><strong>Indexing & Selection:</strong><br>
+	<small>
+		keys(), items()<br>
+		loc[], iloc[], ix[]<br>
+		values()<br>
+	</small>
+</p>
+<p><strong>Merge & Join:</strong><br>
+	<small>
+		pd.merge()<br>
+		<span style="color:blue;">
+			Example: US States data</span><br>
+	</small>
+</p>
+<p><strong>Missing Values:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Objects:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Operations:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Performance, Eval & Query:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Pivot Tables:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Time Series:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+<p><strong>Vectorized String Operations:</strong><br>
+	<small>
+		- name (str)<br>
+	</small>
+</p>
+
+<hr>
+
+<h3>SciKit</h3>
+
+<p><strong>Introduction:</strong><br>
+	<small>
+		example: iris<br>
+		- data representation<br>
+		- visualize targets: pairplots<br>
+		- simple linear regression<br>
+		- classification: gaussian naive bayes<br>
+		- classification metrics: accuracy score<br>
+		- dimensionality reduction: PCA & lmplot<br>
+		- clustering: gaussian mixture model & lmplot<br>
+		<br>
+		example: handwritten digits<br>
+		- visualize<br>
+		- dimensionality reduction: isomap<br>
+		- classification: gaussian naive bayes<br>
+		- metrics: confusion matrix<br>
+	</small>
+</p>
+<p><strong>Linear Regression:</strong><br>
+	<small>
+		simple LR<br>
+		basis functions<br>
+		basis functions (polynomial)<br>
+		basis functions (gaussian)<br>
+		regularization<br>
+		ridge regression (L2 regularization)<br>
+		lasso regression (L1 regularization)<br>
+		<span style="color:blue;">
+			example: bicycle traffic</span><br>
+	</small>
+</p>
+<p><strong>Naive Bayes:</strong><br>
+	<small>
+		definitions<br>
+		Gaussian NB<br>
+		prob. classification (predict_proba)<br>
+		multinomial NB<br>
+		<span style="color:blue;">
+			Text classification (20 newsgroups)<br>
+			- TFIDF vectorizer<br>
+			- MultinomialNB<br>
+			- make_pipeline<br>
+			- confusion_matrix<br>
+		</span>
+		when to use NB<br>
+	</small>
+</p>
+<p><strong>Feature Engineering:</strong><br>
+	<small>
+		categorical features<br>
+		- one-hot encoding (DictVectorizer)<br>
+		text features<br>
+		- word counting (CountVectorizer)<br>
+		- word counting (TfidfVectorizer)<br>
+		image features (TODO)<br>
+		derived features (PolynomialFeatures)<br>
+		missing features (Imputer)<br>
+		feature pipelines (make_pipeline)<br>
+	</small>
+</p>
+<p><strong>Hyperparameters & Model Validation:</strong><br>
+	<small>
+		holdout (test_train_split)<br>
+		cross-validation (CV) (cross_val_score)<br>
+		leave-one-out CV (LeaveOneOut)<br>
+		bias-variance tradeoffs<br>
+		validation_curves<br>
+		learning curves<br>
+		grid search (GridSearchCV)<br>
+	</small>
+</p>
+<p><strong>Kernel Density Estimation:</strong><br>
+	<small>
+		normed histograms<br>
+		KernelDensity<br>
+		selecting bandwidth (GridSearchCV)<br>
+		<span style="color:blue;">
+			KDE on a Sphere<br>
+			Basemap, species_distribution</span><br>
+		not-so-naive-Bayes<br>
+		<span style="color:blue;">
+			custom estimators on Digits</span><br>
+	</small>
+</p>
+<p><strong>Principal Component Analysis:</strong><br>
+	<small>
+		introduction<br>
+		PCA as dimensionality reducer<br>
+		<span style="color:blue;">
+			PCA on digits</span><br>
+			choosing #components (explained_variance)<br>
+			PCA as a noise filter</span><br>
+		<span style="color:blue;"><br>
+			Example: face analysis<br>
+		</span>
+	</small>
+</p>
+<p><strong>Decision Trees & Random Forests:</strong><br>
+	<small>
+		Decision Tree Classifiers<br>
+		Random Forests & Bagging<br>
+		Random Forest Regression<br>
+		<span style="color:blue;">
+			Example: RF for Digit classification</span><br>
+			- classification report<br>
+			- confusion matrix<br>
+	</small>
+</p>
+<p><strong>Support Vector Machines:</strong><br>
+	<small>
+		Definition<br>
+		Margins<br>
+		Fitting<br>
+		Kernel (non-linear) SVM<br>
+		Kernel trick<br>
+		Margin "softening"<br>
+		<span style="color:blue;">
+			Example: Face recognition</span><br>
+	</small>
+</p>
+<p><strong>K-Means:</strong><br>
+	<small>
+		Introduction<br>
+		Expectation Maximization (EM)<br>
+		Caveats<br>
+	</small>
+</p>
+<p><strong>Gaussian Mixtures:</strong><br>
+	<small>
+		GMMs vs K-Means<br>
+		GMM & Expectation Maximization (EM)<br>
+		GMM as a density estimator<br>
+		AIC & BIC info criterions<br>
+		GMM for generating new data<br>
+	</small>
+</p>
+<p><strong>Manifolds:</strong><br>
+	<small>
+		Hello World<br>
+		Multidimensional scaling (MDS)<br>
+		pairwise_distances<br>
+		Locally Linear Embedding (LLE)<br>
+		Tradeoffs<br>
+		<span style="color:blue;">
+			Example: Isomap on faces dataset<br>
+			Example: Visualing digits dataset<br>
+		</span>
+	</small>
+</p>
+<p><strong>Face Detection Pipeline:</strong><br>
+	<small>
+		HOG (Histogram of Oriented Gradients)<br>
+		Caveats & Improvements<br>
+	</small>
+</p>
+
+</section>
